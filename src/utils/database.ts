@@ -8,23 +8,23 @@ export const navigationData = [
 //databank with links for backgrounds for Main component
 export const mainBackgroundDatabase = {
     home: {
-        mobile: "/assets/background/home/background-home-mobile.jpg",
-        tablet: "/assets/background/home/background-home-tablet.jpg",
-        desktop: "/assets/background/home/background-home-desktop.jpg",
+        mobile: "/Space-Tourism/assets/background/home/background-home-mobile.jpg",
+        tablet: "/Space-Tourism/assets/background/home/background-home-tablet.jpg",
+        desktop: "/Space-Tourism/assets/background/home/background-home-desktop.jpg",
     },
     destination: {
-        mobile: "/assets/background/destination/background-destination-mobile.jpg",
-        tablet: "/assets/background/destination/background-destination-tablet.jpg",
-        desktop: "/assets/background/destination/background-destination-desktop.jpg",
+        mobile: "/Space-Tourism/assets/background/destination/background-destination-mobile.jpg",
+        tablet: "/Space-Tourism/assets/background/destination/background-destination-tablet.jpg",
+        desktop: "/Space-Tourism/assets/background/destination/background-destination-desktop.jpg",
     },
     crew: {
-        mobile: "/assets/background/crew/background-crew-mobile.jpg",
-        tablet: "/assets/background/crew/background-crew-tablet.jpg",
-        desktop: "/assets/background/crew/background-crew-desktop.jpg",
+        mobile: "/Space-Tourism/assets/background/crew/background-crew-mobile.jpg",
+        tablet: "/Space-Tourism/assets/background/crew/background-crew-tablet.jpg",
+        desktop: "/Space-Tourism/assets/background/crew/background-crew-desktop.jpg",
     },
     technology: {
-        mobile: "/assets/background/technology/background-technology-mobile.jpg",
-        tablet: "/assets/background/technology/background-technology-tablet.jpg",
-        desktop: "/assets/background/technology/background-technology-desktop.jpg",
+        mobile: "/Space-Tourism/assets/background/technology/background-technology-mobile.jpg",
+        tablet: "/Space-Tourism/assets/background/technology/background-technology-tablet.jpg",
+        desktop: "/Space-Tourism/assets/background/technology/background-technology-desktop.jpg",
     },
 };
