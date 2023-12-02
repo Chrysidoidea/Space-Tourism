@@ -8,23 +8,23 @@ export const navigationData = [
 //databank with links for backgrounds for Main component
 export const mainBackgroundDatabase = {
     home: {
-        mobile: "src/assets/background/home/background-home-mobile.jpg",
-        tablet: "src/assets/background/home/background-home-tablet.jpg",
-        desktop: "src/assets/background/home/background-home-desktop.jpg",
+        mobile: "/assets/background/home/background-home-mobile.jpg",
+        tablet: "/assets/background/home/background-home-tablet.jpg",
+        desktop: "/assets/background/home/background-home-desktop.jpg",
     },
     destination: {
-        mobile: "src/assets/background/destination/background-destination-mobile.jpg",
-        tablet: "src/assets/background/destination/background-destination-tablet.jpg",
-        desktop: "src/assets/background/destination/background-destination-desktop.jpg",
+        mobile: "/assets/background/destination/background-destination-mobile.jpg",
+        tablet: "/assets/background/destination/background-destination-tablet.jpg",
+        desktop: "/assets/background/destination/background-destination-desktop.jpg",
     },
     crew: {
-        mobile: "src/assets/background/crew/background-crew-mobile.jpg",
-        tablet: "src/assets/background/crew/background-crew-tablet.jpg",
-        desktop: "src/assets/background/crew/background-crew-desktop.jpg",
+        mobile: "/assets/background/crew/background-crew-mobile.jpg",
+        tablet: "/assets/background/crew/background-crew-tablet.jpg",
+        desktop: "/assets/background/crew/background-crew-desktop.jpg",
     },
     technology: {
-        mobile: "src/assets/background/technology/background-technology-mobile.jpg",
-        tablet: "src/assets/background/technology/background-technology-tablet.jpg",
-        desktop: "src/assets/background/technology/background-technology-desktop.jpg",
+        mobile: "/assets/background/technology/background-technology-mobile.jpg",
+        tablet: "/assets/background/technology/background-technology-tablet.jpg",
+        desktop: "/assets/background/technology/background-technology-desktop.jpg",
     },
 };

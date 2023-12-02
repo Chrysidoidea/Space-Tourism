@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import { device } from "../../utils/windowUtils";
 
-import logoImage from "./../../assets/logo.svg";
+import logoImage from "/assets/logo.svg";
 
 //main nav wrapper
 export const NavStyled = styled.div`
