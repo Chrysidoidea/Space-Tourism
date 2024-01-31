@@ -1,5 +1,7 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
+import { SectionNavigator } from "./components/sectionNavigator/SectionNavigator";
+import { destination } from "./utils/database";
 
 import Navigation from "./components/navigation";
 import Home from "./pages/home/Home";
@@ -14,11 +16,12 @@ function App() {
       <Navigation />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.key}>
-          <Route index Component={Home} />
-          <Route path="/technology" Component={Technology} />
-          <Route path="/crew" Component={Crew} />
-          <Route path="/destination" Component={Destination} />
-        </Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="technology" element={<Technology/>} />
+          <Route path="crew" element={<Crew/>} />
+          <Route path="destination/*" element={<Destination/>}>
+            </Route>        
+          </Routes>
       </AnimatePresence>
     </>
   );

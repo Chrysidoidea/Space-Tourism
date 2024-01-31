@@ -1,6 +1,5 @@
 import styled, { createGlobalStyle, css } from "styled-components";
 import { device } from "../utils/windowUtils";
-// import { device } from "../utils/windowUtils";
 
 export const GlobalStyle = createGlobalStyle`
   :root {
@@ -40,7 +39,7 @@ h2, h3, h4, h5, p {
 
 `;
 
-const UppercaseText = css`
+export const UppercaseText = css`
   text-transform: uppercase;
 `;
 
@@ -62,10 +61,15 @@ export const Header1 = styled.h1`
   }
 `;
 export const Header2 = styled.h2`
-  ${UppercaseText}
+  ${UppercaseText};
 `;
 export const Header3 = styled.h3`
-  ${UppercaseText}
+  ${UppercaseText};
+  font-family: "Barlow Condensed", sans-serif;
+
+  & > span {
+    color: grey;
+  }
 `;
 export const Header4 = styled.h4`
   ${UppercaseText}
@@ -75,7 +79,6 @@ export const Header5 = styled.h5`
   font-family: "Barlow Condensed", sans-serif;
   letter-spacing: 0.16rem;
   font-size: clamp(1rem, 3vw, 2.1rem);
-
   margin-bottom: 1.2rem;
 
   @media (${device.desktop}) {
@@ -115,7 +118,7 @@ export const Button = styled.button`
   letter-spacing: 2px;
   border: none;
   cursor: pointer;
-  transition: .4s;
+  transition: 0.4s;
 
   &::before {
     content: "";
@@ -139,8 +142,8 @@ export const Button = styled.button`
     margin-left: 1.3rem;
 
     &:active::before {
-    transform: scale(1.49);
-  }
+      transform: scale(1.49);
+    }
   }
 `;
 export const Section = styled.section`
@@ -154,5 +157,26 @@ export const Section = styled.section`
   @media (${device.desktop}) {
     height: 100%;
     justify-content: flex-start;
+  }
+`;
+
+export const DetailsLabelValue = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+  ${UppercaseText}
+
+  :first-child {
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 200;
+    color: var(--light-periwinkle-blue);
+  }
+  :last-child {
+    font-size: 2rem;
+  }
+
+  @media (${device.tablet}) {
+    flex-direction: row;
   }
 `;

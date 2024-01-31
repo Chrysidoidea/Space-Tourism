@@ -14,9 +14,6 @@ import {
   UlDropdown,
   UlDefaut,
   Hamburger,
-  // MenuSpan,
-  // MobileMenu,
-  // StandardMenu,
 } from "../styles/components/navigationStyles";
 import {
   hamburgerVariantsFirstChild,
