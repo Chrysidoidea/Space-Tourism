@@ -1,10 +1,8 @@
-import React from "react";
-// import { Main } from "../../styles/pages/destination/destinationStyles";
-import MainComponent from "../../components/main/main";
-import { mainBackgroundDatabase, pageHeading } from "../../utils/database";
+import React, { useEffect } from "react";
+import { pageHeading } from "../../utils/database";
+import { PageHeading } from "../../styles/globalStyles";
 import { Section } from "../../styles/globalStyles";
 import {
-  DestinationHeading,
   DestinationName,
   DestinationDescribe,
   BreakLine,
@@ -13,63 +11,87 @@ import {
 import { DetailsLabelValue } from "../../styles/globalStyles";
 import { DestinationImg } from "../../styles/pages/destination/destinationStyles";
 import { SectionNavigator } from "../../components/sectionNavigator/SectionNavigator";
-// import { destination } from "../../utils/database";
 import { destinations } from "../../utils/database";
-import { Destination } from "../../utils/database";
-import { useLocation } from "react-router-dom";
+import { DestinationTypes } from "../../utils/database";
+import { useLocation, useNavigate } from "react-router-dom";
+import MainComponentPage from "../mainComponent/mainComponent";
 
 type DestinationProps = {
-  data?: Destination[];
+  data?: DestinationTypes[];
 };
 const Destination: React.FC<DestinationProps> = () => {
+  // const location = useLocation();
+  // const { id } = useParams();
+  // const destinationId = id || "moon";
   const location = useLocation();
+  const navigate = useNavigate();
 
-  //take the current location and return the name of it
+  useEffect(() => {
+    if (location.pathname === "/destination") {
+      navigate("/destination/moon");
+    }
+  }, [location.pathname, navigate]);
+  // const destinationByIdSeeker = (id: string | undefined) => {
+  //   return destinations.filter((item) => item.name === id)[0] || destinations[0];
+  // };
+
+  // const destination = destinationByIdSeeker(id);
+
+  // take the current location and return the name of it
   const locationTransform = (location: string) => {
-    if (["/destination/moon", "/destination/europa", "/destination/mars", "/destination/titan"].includes(location)) {
+    if (
+      [
+        "/destination/moon",
+        "/destination/europa",
+        "/destination/mars",
+        "/destination/titan",
+      ].includes(location)
+    ) {
       return location.match(/\/([^\/]+)$/)?.[1];
     } else {
-      return "moon"
+      return "moon";
     }
   };
 
-  //check our current location and return the matching destination description data object
-
-
+  // check our current location and return the matching destination description data object
   const matchingDestination = () => {
-    if (["/destination/moon", "/destination/europa", "/destination/mars", "/destination/titan"].includes(location.pathname)) {
+    if (
+      [
+        "/destination/moon",
+        "/destination/europa",
+        "/destination/mars",
+        "/destination/titan",
+      ].includes(location.pathname)
+    ) {
       const destinationObject = destinations.filter(
         (item) => item.name === locationTransform(location.pathname)
       )[0];
-
       return destinationObject;
     } else {
-      return destinations[0]
+      return destinations[0];
     }
-  }
-  matchingDestination()
+  };
 
   return (
-    <MainComponent
-      mobileBackground={mainBackgroundDatabase.destination.mobile}
-      tabletBackground={mainBackgroundDatabase.destination.tablet}
-      desktopBackground={mainBackgroundDatabase.destination.desktop}
-    >
+    <MainComponentPage>
+
       <Section>
-        <DestinationHeading>
+        <PageHeading>
           <span>{pageHeading[0].place}</span>
           {pageHeading[0].title}
-        </DestinationHeading>
+        </PageHeading>
         <DestinationImg
           src={`/assets/img/destination/image-${locationTransform(
             location.pathname
           )}.webp`}
-          alt={`${locationTransform(location.pathname)}`}
+          alt={locationTransform(location.pathname)}
         />
       </Section>
 
       <Section>
+        {/* //attention, section navigator is FC */}
         <SectionNavigator data={destinations} />
+        {/* //attention, section navigator is FC */}
         <DestinationName>
           {locationTransform(location.pathname)}
         </DestinationName>
@@ -87,9 +109,9 @@ const Destination: React.FC<DestinationProps> = () => {
             <div>{matchingDestination().travel}</div>
           </DetailsLabelValue>
         </DestinationDetails>
-
       </Section>
-    </MainComponent>
+      
+    </MainComponentPage>
   );
 };
 

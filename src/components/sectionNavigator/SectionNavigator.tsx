@@ -3,10 +3,10 @@ import {
   SectionNavigatorNav,
   SectionNavLink,
 } from "../../styles/components/sectionNavigator/sectionNavigatorStyles";
-import { Destination } from "../../utils/database";
+import { DestinationTypes } from "../../utils/database";
 
 type SectionNavigatorProps = {
-  data: Destination[];
+  data: DestinationTypes[];
 };
 
 export const SectionNavigator: React.FC<SectionNavigatorProps> = ({ data }) => {

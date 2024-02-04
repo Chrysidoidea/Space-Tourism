@@ -20,12 +20,10 @@ const Main = styled(motion.div)<MainType>`
   z-index: -1;
 
   @media (${device.tablet}) {
-    padding-top: 10.3rem;
     background-image: url(${(props) => props.$tabletBackground});
   }
 
   @media (${device.desktop}) {
-    padding-top: 12rem;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;

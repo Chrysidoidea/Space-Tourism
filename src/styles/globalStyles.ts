@@ -81,6 +81,10 @@ export const Header5 = styled.h5`
   font-size: clamp(1rem, 3vw, 2.1rem);
   margin-bottom: 1.2rem;
 
+  @media (${device.tablet}) {
+    margin-top: 7rem;
+  }
+
   @media (${device.desktop}) {
     width: 100%;
     text-align: left;
@@ -164,19 +168,60 @@ export const DetailsLabelValue = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: .5rem;
+  gap: 0.6rem;
   ${UppercaseText}
 
   :first-child {
     font-family: "Barlow Condensed", sans-serif;
     font-weight: 200;
     color: var(--light-periwinkle-blue);
+    letter-spacing: 0.15rem;
   }
   :last-child {
+    font-family: "Bellefair", sans-serif;
     font-size: 2rem;
+    font-weight: 200;
   }
 
   @media (${device.tablet}) {
-    flex-direction: row;
+    :last-child {
+      font-size: 1.8rem;
+    }
+  }
+
+  @media (${device.desktop}) {
+    &:last-child,
+    &:first-child {
+      align-items: flex-start;
+    }
+  }
+`;
+
+export const PageHeading = styled.h3`
+  ${UppercaseText};
+  font-family: "Barlow Condensed", sans-serif;
+  margin-top: 0.3rem;
+  margin-bottom: 2.2rem;
+  letter-spacing: 0.2rem;
+  font-size: 0.9rem;
+
+  & > span {
+    color: grey;
+    margin-right: 1rem;
+  }
+
+  @media (${device.tablet}) {
+    margin-top: 3rem;
+    margin-left: 1rem;
+    font-size: 1.3rem;
+    align-self: flex-start;
+  }
+
+  @media (${device.desktop}) {
+    margin-top: 8rem;
+    margin-left: 9rem;
+    font-size: 1.8rem;
+    letter-spacing: 0.3rem;
+    min-width: 30vw;
   }
 `;

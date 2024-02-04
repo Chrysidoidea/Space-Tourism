@@ -2,8 +2,8 @@ import React from "react";
 import Main from "../../styles/components/main/main";
 
 const fadeInAnimation = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1 },
+  hidden: { opacity: 0, filter: "grayscale(100%) blur(10px)" },
+  visible: { opacity: 1, filter: "grayscale(0%) blur(0px)" },
 };
 
 type MainComponentType = {
@@ -25,7 +25,7 @@ const MainComponent: React.FC<MainComponentType> = ({
       initial="hidden"
       animate="visible"
       exit="hidden"
-      transition={{ duration: 0.1 }}
+      transition={{ duration: 0.3, ease: "easeIn" }}
       $mobileBackground={mobileBackground}
       $tabletBackground={tabletBackground}
       $desktopBackground={desktopBackground}
