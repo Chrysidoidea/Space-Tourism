@@ -7,6 +7,7 @@ export const GlobalStyle = createGlobalStyle`
     --color-white: #fff;
     --color-black: #000;
     --color-gray: #f8f8f8;
+    --color-night-gray: #979797;
     --light-periwinkle-blue: #D0D6F9; 
     --dark-navy-blue: #0B0D17;
   }
@@ -150,7 +151,12 @@ export const Button = styled.button`
     }
   }
 `;
-export const Section = styled.section`
+type SectionProps = {
+  $crew?: boolean;
+};
+
+
+export const Section = styled.section<SectionProps>`
   background-color: transparent;
   display: flex;
   align-items: center;
@@ -162,6 +168,14 @@ export const Section = styled.section`
     height: 100%;
     justify-content: flex-start;
   }
+
+  ${(props) =>
+    props.$crew &&
+    css`
+      @media (${device.desktop}) {
+        width: 100%;
+      }
+    `}
 `;
 
 export const DetailsLabelValue = styled.div`
@@ -177,6 +191,7 @@ export const DetailsLabelValue = styled.div`
     color: var(--light-periwinkle-blue);
     letter-spacing: 0.15rem;
   }
+
   :last-child {
     font-family: "Bellefair", sans-serif;
     font-size: 2rem;
@@ -195,6 +210,25 @@ export const DetailsLabelValue = styled.div`
       align-items: flex-start;
     }
   }
+`;
+type BreakLineProps = {
+  $crew?: string;
+};
+
+export const BreakLine = styled.hr<BreakLineProps>`
+  height: 1px;
+  width: 100%;
+  border: none;
+  background-color: #97979747;
+  margin: 0;
+
+  ${(props) =>
+    props.$crew &&
+    css`
+      @media (${device.tablet}) {
+        display: none;
+      }
+    `}
 `;
 
 export const PageHeading = styled.h3`

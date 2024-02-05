@@ -83,18 +83,13 @@ export const DestinationDescribe = styled.p`
     width: 67%;
   }
 `;
-export const BreakLine = styled.hr`
-  height: 1px;
-  width: 100%;
-  border: none;
-  background-color: #97979747;
-  margin-top: 1.3rem;
-`;
+
 export const DestinationDetails = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2.3rem;
   margin-top: 1.8rem;
+  margin-bottom: 1.3rem;
 
   @media (${device.tablet}) {
     gap: 6rem;

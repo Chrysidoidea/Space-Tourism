@@ -5,9 +5,9 @@ import { Section } from "../../styles/globalStyles";
 import {
   DestinationName,
   DestinationDescribe,
-  BreakLine,
   DestinationDetails,
 } from "../../styles/pages/destination/destinationStyles";
+import { BreakLine } from "../../styles/globalStyles";
 import { DetailsLabelValue } from "../../styles/globalStyles";
 import { DestinationImg } from "../../styles/pages/destination/destinationStyles";
 import { SectionNavigator } from "../../components/sectionNavigator/SectionNavigator";
@@ -20,9 +20,6 @@ type DestinationProps = {
   data?: DestinationTypes[];
 };
 const Destination: React.FC<DestinationProps> = () => {
-  // const location = useLocation();
-  // const { id } = useParams();
-  // const destinationId = id || "moon";
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -31,13 +28,7 @@ const Destination: React.FC<DestinationProps> = () => {
       navigate("/destination/moon");
     }
   }, [location.pathname, navigate]);
-  // const destinationByIdSeeker = (id: string | undefined) => {
-  //   return destinations.filter((item) => item.name === id)[0] || destinations[0];
-  // };
 
-  // const destination = destinationByIdSeeker(id);
-
-  // take the current location and return the name of it
   const locationTransform = (location: string) => {
     if (
       [
