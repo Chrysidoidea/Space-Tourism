@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { navigationData } from "../utils/database";
-import { 
+import { useNavigate } from "react-router-dom";
+
+import {
   numerableDataRenderer,
   nonNumerableDataRenderer,
- } from "./navigationDataRender";
+} from "./navigationDataRender";
 import { device } from "../utils/windowUtils";
 import throttle from "../utils/throttle";
 
@@ -22,27 +24,56 @@ import {
   UlVariants,
 } from "../styles/components/navigationAnima";
 const Navigation: React.FC = () => {
+  const navigate = useNavigate();
+  const logoNavigation = () => {
+    navigate("/");
+  }
   //check screen size, if 768px width return true, else false.
   const toggleMenuType = () => {
     //creating a breackpoints to achieve desired styles depends of screen size
     const mobileBreakpoint = Number.parseInt(device.tablet.match(/\d+/)![0]);
     const tabletBreakpoint = Number.parseInt(device.desktop.match(/\d+/)![0]);
 
-  if (window.innerWidth < mobileBreakpoint) {
-    return "mobile";
-  } else if (window.innerWidth < tabletBreakpoint) {
-    return "tablet";
-  } else {
-    return "desktop";
-  }
-}
+    if (window.innerWidth < mobileBreakpoint) {
+      return "mobile";
+    } else if (window.innerWidth < tabletBreakpoint) {
+      return "tablet";
+    } else {
+      return "desktop";
+    }
+  };
 
   const [menuType, setMenuType] = useState<string>(toggleMenuType());
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const dropdownRef = useRef<HTMLUListElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
+
+  useEffect(() => {
+    if (innerWidth <= 375 && isOpen === true) {
+      function handleClickOutside(event: MouseEvent) {
+        if (
+          dropdownRef.current &&
+          !dropdownRef.current.contains(event.target as Node) &&
+          buttonRef.current &&
+          !buttonRef.current.contains(event.target as Node)
+        ) {
+          console.log("click");
+          handleClick();
+        }
+      }
+
+      document.body.addEventListener("click", handleClickOutside);
+
+      return () => {
+        document.body.removeEventListener("click", handleClickOutside);
+      };
+    }
+  }, [isOpen]);
+
   const handleResize = () => {
     setMenuType(toggleMenuType());
   };
@@ -59,11 +90,11 @@ const Navigation: React.FC = () => {
 
   return (
     <NavStyled>
-      <Logo />
+      <Logo onClick={logoNavigation}/>
       {/*render data depends of screen size, if 380 or less, show this option */}
-      {menuType === 'mobile' && (
+      {menuType === "mobile" && (
         <>
-          <Hamburger onClick={handleClick}>
+          <Hamburger onClick={handleClick} ref={buttonRef}>
             <motion.div
               id="bar1"
               className="bar"
@@ -88,22 +119,23 @@ const Navigation: React.FC = () => {
           </Hamburger>
 
           <UlDropdown
+            ref={dropdownRef}
             initial={false}
             animate={isOpen ? "initial" : "collapse"}
             variants={UlVariants}
           >
-            {numerableDataRenderer(navigationData)}
+            {numerableDataRenderer(navigationData, handleClick)}
           </UlDropdown>
         </>
-      )} 
-      
-      { menuType === 'tablet' && (
+      )}
+
+      {menuType === "tablet" && (
         <>
           {/*render this if screen width more than 768px*/}
           <UlDefaut>{nonNumerableDataRenderer(navigationData)}</UlDefaut>
         </>
       )}
-      { menuType === 'desktop' && (
+      {menuType === "desktop" && (
         <>
           {/*render this if screen width more than 1440px*/}
           <UlDefaut>{numerableDataRenderer(navigationData)}</UlDefaut>

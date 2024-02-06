@@ -4,20 +4,21 @@ import {
   NumerableNavigationItem,
   NavLinkStyled,
 } from "../styles/components/navigationStyles";
-// import { NavLink } from "react-router-dom";
 
-type NavigationItemType = { place: string; title: string; link: string };
+type NavigationItemType = {
+  place: string;
+  title: string;
+  link: string;
+};
 
-// const linkFilter = (link: string) => {
-//   if (link === "destination") {
-//     return "destination/moon";
-//   } else return link
-// }
 
 //render numerable nav items for mobile and desktop screens
-export const numerableDataRenderer = (data: NavigationItemType[]) => {
+export const numerableDataRenderer = (
+  data: NavigationItemType[],
+  isOpen?: () => void
+) => {
   return data.map((item) => (
-    <NavLinkStyled to={`/${item.link}`} key={item.place} >
+    <NavLinkStyled to={`/${item.link}`} onClick={isOpen} key={item.place}>
       <NumerableNavigationItem>
         <MenuSpan>{item.place}</MenuSpan>
         {item.title}
@@ -26,9 +27,12 @@ export const numerableDataRenderer = (data: NavigationItemType[]) => {
   ));
 };
 //render non numerable nav items for tablet screens
-export const nonNumerableDataRenderer = (data: NavigationItemType[]) => {
+export const nonNumerableDataRenderer = (
+  data: NavigationItemType[],
+  isOpen?: () => void
+) => {
   return data.map((item) => (
-    <NavLinkStyled to={`/${item.link}`} key={item.place}>
+    <NavLinkStyled to={`/${item.link}`} onClick={isOpen} key={item.place}>
       <NonNumerableNavigationItem key={item.place}>
         {item.title}
       </NonNumerableNavigationItem>

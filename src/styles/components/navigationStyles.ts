@@ -30,6 +30,7 @@ export const Logo = styled.div`
   height: 3rem;
   width: 3rem;
   transform: scale(0.9);
+  cursor: pointer;
 
   @media (${device.tablet}) {
     transform: scale(1);
