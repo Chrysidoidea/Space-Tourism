@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
 import { device } from "../../../utils/windowUtils";
 
 export const CrewImg = styled.img`
@@ -142,4 +141,3 @@ export const CrewMemberRole = styled.p`
   }
 `;
 
-export const CrewNavLink = styled(NavLink)``;

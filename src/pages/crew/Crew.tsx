@@ -2,7 +2,7 @@ import React from "react";
 import { Section } from "../../styles/globalStyles";
 import { PageHeading } from "../../styles/globalStyles";
 import { pageHeading } from "../../utils/database";
-import { CrewNavLink } from "../../styles/pages/crew/crewStyles";
+import { NavLink } from "react-router-dom";
 import { Crew } from "../../utils/database";
 import { useEffect } from "react";
 import MainComponentPage from "../mainComponent/mainComponent";
@@ -63,7 +63,6 @@ const Crew: React.FC<CrewProps> = () => {
     }
   };
 
-
   return (
     <MainComponentPage>
       <Section>
@@ -71,13 +70,13 @@ const Crew: React.FC<CrewProps> = () => {
           <span>{pageHeading[1].place}</span>
           {pageHeading[1].title}
         </PageHeading>{" "}
-        <CrewImg src={`${matchingCrew().images.webp}`} alt={"person"} />
-        <BreakLine $crew='Patience you must have my young Padawan.' />
+        <CrewImg src={`${matchingCrew().images.webp}`} alt="person" />
+        <BreakLine $crew="Patience you must have my young Padawan." />
       </Section>
 
       <SliderNav>
         {crew.map((item) => {
-          return <CrewNavLink to={`${item.url}`} key={item.url}></CrewNavLink>;
+          return <NavLink to={`${item.url}`} key={item.url}></NavLink>;
         })}
       </SliderNav>
 

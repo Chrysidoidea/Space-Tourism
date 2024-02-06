@@ -155,7 +155,6 @@ type SectionProps = {
   $crew?: boolean;
 };
 
-
 export const Section = styled.section<SectionProps>`
   background-color: transparent;
   display: flex;
@@ -176,6 +175,7 @@ export const Section = styled.section<SectionProps>`
         width: 100%;
       }
     `}
+    
 `;
 
 export const DetailsLabelValue = styled.div`
