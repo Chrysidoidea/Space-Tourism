@@ -72,7 +72,7 @@ const Destination: React.FC<DestinationProps> = () => {
           {pageHeading[0].title}
         </PageHeading>
         <DestinationImg
-          src={`/assets/img/destination/image-${locationTransform(
+          src={`./../assets/img/destination/image-${locationTransform(
             location.pathname
           )}.webp`}
           alt={locationTransform(location.pathname)}
