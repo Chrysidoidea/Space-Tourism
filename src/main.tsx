@@ -7,7 +7,7 @@ import App from "./App.tsx";
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <GlobalStyle />
-    <Router>
+    <Router basename="/Space-Tourism">
       <App />
     </Router>
   </React.StrictMode>
