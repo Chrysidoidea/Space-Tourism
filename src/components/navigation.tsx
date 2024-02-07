@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import {
   numerableDataRenderer,
   nonNumerableDataRenderer,
-} from "./navigationDataRender";
+} from "./NavigationDataRender";
 import { device } from "../utils/windowUtils";
 import throttle from "../utils/throttle";
 
@@ -61,7 +61,6 @@ const Navigation: React.FC = () => {
           buttonRef.current &&
           !buttonRef.current.contains(event.target as Node)
         ) {
-          console.log("click");
           handleClick();
         }
       }

@@ -80,9 +80,9 @@ const Destination: React.FC<DestinationProps> = () => {
       </Section>
 
       <Section>
-        {/* //attention, section navigator is FC */}
+        {/* //attention, section navigator is a FC */}
         <SectionNavigator data={destinations} />
-        {/* //attention, section navigator is FC */}
+        {/* //attention, section navigator is a FC */}
         <DestinationName>
           {locationTransform(location.pathname)}
         </DestinationName>
