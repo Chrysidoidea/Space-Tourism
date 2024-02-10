@@ -271,6 +271,7 @@ h2, h3, h4, h5, p {
   box-sizing: border-box;
   user-select: none;
   backdrop-filter: blur(5rem);
+  -webkit-backdrop-filter: blur(5rem);
 
   & > *.active {
     pointer-events: none;
