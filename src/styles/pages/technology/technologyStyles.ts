@@ -102,6 +102,10 @@ export const TechnologySlider = styled.ul`
   display: flex;
   gap: 1rem;
 
+  &> *.active {
+    pointer-events: none;
+  }
+
   @media (${device.desktop}) {
     position: absolute;
     justify-content: center;

@@ -11,9 +11,9 @@ export const CrewImg = styled.img`
   }
 
   @media (${device.tablet}) {
-    height: 35rem;
+    height: 33rem;
     position: absolute;
-    bottom: -9.5rem;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
 
@@ -23,29 +23,35 @@ export const CrewImg = styled.img`
   }
 
   @media (${device.desktop}) {
-    height: 44rem;
-    left: 53%;
+    height: 38rem;
+    left: 51%;
     bottom: 0;
     transform: none;
   }
 `;
 
 export const SliderNav = styled.ul`
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   list-style: none;
   display: flex;
-  gap: 1rem;
   justify-content: center;
   padding: 0;
+  gap: 1rem;
+
+  & > *.active {
+    pointer-events: none;
+  }
 
   @media (${device.tablet}) {
+    margin-top: .5rem;
     order: 1;
   }
 
   @media (${device.desktop}) {
     position: absolute;
-    left: clamp(10rem, 13vw, 120rem);
-    bottom: 5rem;
+    left: 16.4%;
+    transform: translateX(-50%);
+    bottom: 4.8rem;
     gap: 1.5rem;
   }
 
@@ -140,4 +146,3 @@ export const CrewMemberRole = styled.p`
     font-size: 1.1rem;
   }
 `;
-

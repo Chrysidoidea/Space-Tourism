@@ -70,6 +70,10 @@ export const UlDefaut = styled(motion.ul)`
   user-select: none;
   backdrop-filter: blur(5rem);
 
+  & > *.active {
+    pointer-events: none;
+  }
+
   @media (${device.desktop}) {
     padding-left: 8rem;
     font-size: 1rem;

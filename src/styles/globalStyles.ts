@@ -20,9 +20,10 @@ export const GlobalStyle = createGlobalStyle`
  body {
   position: relative;
     box-sizing: border-box;
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
     margin: 0;
     padding: 0;
     z-index: -10;
@@ -75,6 +76,7 @@ export const Section = styled.section<SectionProps>`
   ${(props) =>
     props.$Nói_albínói &&
     css`
+      //for adequate behavior on desktop screen, can we call it handicap?
       @media (${device.desktop}) {
         width: 100%;
       }

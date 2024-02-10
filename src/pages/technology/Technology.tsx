@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useNavigate, useLocation } from "react-router-dom";
-import MainComponentPage from "../mainComponent/mainComponent";
+import MainComponent from "../../components/main/Main";
+import { BACKGROUND_DATABASE } from "../../utils/database";
 import { Section } from "../../styles/globalStyles";
 import { PageHeading } from "../../styles/globalStyles";
+import { matchPageUrl } from "../../utils/helperFuntions";
 import {
   PAGE_HEADING_DATABASE,
   TECH_DATABASE,
@@ -18,18 +20,17 @@ import {
   TechnologyInfo,
   TechnologyContainer,
 } from "../../styles/pages/technology/technologyStyles";
-import { matchPageUrl } from "../../utils/helperFuntions";
 
 const Technology: React.FC<GENERIC_PAGE_TYPE> = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
+    //automatically navigate to first technology
     if (location.pathname === "/technology") {
       navigate("/technology/launch-vehicle");
     }
   }, [location.pathname, navigate]);
-
 
   const urlHandler = () => {
     if (window.innerWidth > 768) {
@@ -54,7 +55,12 @@ const Technology: React.FC<GENERIC_PAGE_TYPE> = () => {
   //approach below, change applied only at first render, if you make dynamic width changes this will not re-render new picture
 
   return (
-    <MainComponentPage>
+    <MainComponent 
+      mobileBackground={BACKGROUND_DATABASE.technology.mobile}
+      tabletBackground={BACKGROUND_DATABASE.technology.tablet}
+      desktopBackground={BACKGROUND_DATABASE.technology.desktop}
+      >
+      {" "}
       <Section>
         <PageHeading>
           <span>{PAGE_HEADING_DATABASE[2].place}</span>
@@ -62,7 +68,6 @@ const Technology: React.FC<GENERIC_PAGE_TYPE> = () => {
         </PageHeading>
         <TechnologyImg src={urlHandler()} alt="tech" />
       </Section>
-
       <TechnologySlider>
         {TECH_DATABASE.map((item) => {
           return (
@@ -72,33 +77,36 @@ const Technology: React.FC<GENERIC_PAGE_TYPE> = () => {
           );
         })}
       </TechnologySlider>
-
       <Section $Nói_albínói>
         <TechnologyContainer>
           <TechnologyHeading>THE TERMINOLOGY…</TechnologyHeading>
           <TechnologyName>
             {
-              (matchPageUrl(
-                ROUTE_LINKS_DATABASE.technology,
-                location,
-                "launch-vehicle",
-                TECH_DATABASE
-              )as { name: string }).name
+              (
+                matchPageUrl(
+                  ROUTE_LINKS_DATABASE.technology,
+                  location,
+                  "launch-vehicle",
+                  TECH_DATABASE
+                ) as { name: string }
+              ).name
             }
           </TechnologyName>
           <TechnologyInfo>
             {
-              (matchPageUrl(
-                ROUTE_LINKS_DATABASE.technology,
-                location,
-                "launch-vehicle",
-                TECH_DATABASE
-              ) as { info: string }).info
+              (
+                matchPageUrl(
+                  ROUTE_LINKS_DATABASE.technology,
+                  location,
+                  "launch-vehicle",
+                  TECH_DATABASE
+                ) as { info: string }
+              ).info
             }
           </TechnologyInfo>
         </TechnologyContainer>
       </Section>
-    </MainComponentPage>
+    </MainComponent>
   );
 };
 

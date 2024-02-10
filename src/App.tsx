@@ -41,3 +41,9 @@ function App() {
 }
 
 export default App;
+
+
+
+//url(./assets/background/technology/background-technology-tablet.jpg)
+//url(./assets/background/technology/background-technology-tablet.jpg)
+//url(./assets/background/crew/background-crew-tablet.jpg)

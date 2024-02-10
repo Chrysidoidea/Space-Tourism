@@ -13,16 +13,19 @@ import {
 } from "../../styles/pages/destination/destinationStyles";
 import { BreakLine } from "../../styles/globalStyles";
 import { DetailsLabelValue } from "../../styles/globalStyles";
-import { DestinationImg } from "../../styles/pages/destination/destinationStyles";
+import {
+  DestinationImg,
+  DestinationNavigatorNav,
+  DestinationNavLink,
+} from "../../styles/pages/destination/destinationStyles";
 import { DESTINATION_DATABASE } from "../../utils/database";
 import { GENERIC_PAGE_TYPE } from "../../utils/database";
 import { useLocation, useNavigate } from "react-router-dom";
 import MainComponent from "../../components/main/Main";
-import { locationTransform, matchPageUrl } from "../../utils/helperFuntions";
 import {
-  SectionNavigatorNav,
-  SectionNavLink,
-} from "../../styles/components/sectionNavigator/sectionNavigatorStyles";
+  locationTransform,
+  matchPageUrl,
+} from "../../utils/helperFuntions";
 
 const Destination: React.FC<GENERIC_PAGE_TYPE> = () => {
   const location = useLocation();
@@ -59,15 +62,15 @@ const Destination: React.FC<GENERIC_PAGE_TYPE> = () => {
         />
       </Section>
       <Section>
-        <SectionNavigatorNav>
+        <DestinationNavigatorNav>
           {DESTINATION_DATABASE.map((item) => {
             return (
-              <SectionNavLink to={`${item.url}`} key={item.url}>
+              <DestinationNavLink to={`${item.url}`} key={item.url}>
                 <li>{item.url}</li>
-              </SectionNavLink>
+              </DestinationNavLink>
             );
           })}
-        </SectionNavigatorNav>
+        </DestinationNavigatorNav>
         <DestinationName>
           {locationTransform(
             location.pathname,
