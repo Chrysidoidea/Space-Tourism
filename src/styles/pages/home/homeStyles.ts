@@ -18,7 +18,7 @@ export const HomeHeading = styled.h5`
     text-align: left;
     letter-spacing: 0.35rem;
     margin-bottom: 1.5rem;
-    margin-top: 12.3rem;
+    margin-top: 18.3rem;
   }
 `;
 
@@ -90,7 +90,7 @@ export const CircleOfWOrlds = styled.button`
   }
 
   @media (${device.desktop}) {
-    margin-top: 19rem;
+    margin-top: 25.3rem;
     margin-left: 1.3rem;
 
     &:active::before {
