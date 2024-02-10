@@ -394,7 +394,8 @@ h2, h3, h4, h5, p {
     text-align: left;
     letter-spacing: 0.35rem;
     margin-bottom: 1.5rem;
-    margin-top: 18.3rem;
+    font-size: 1.6rem;
+    margin-top: 18.5rem;
   }
 `,tE=$.h1`
   ${Wt};
