@@ -393,7 +393,7 @@ h2, h3, h4, h5, p {
     text-align: left;
     letter-spacing: 0.35rem;
     margin-bottom: 1.5rem;
-    margin-top: 12.3rem;
+    margin-top: 18.3rem;
   }
 `,tE=$.h1`
   ${Wt};
@@ -459,7 +459,7 @@ h2, h3, h4, h5, p {
   }
 
   @media (${M.desktop}) {
-    margin-top: 19rem;
+    margin-top: 25.3rem;
     margin-left: 1.3rem;
 
     &:active::before {
