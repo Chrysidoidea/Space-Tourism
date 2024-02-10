@@ -18,7 +18,8 @@ export const HomeHeading = styled.h5`
     text-align: left;
     letter-spacing: 0.35rem;
     margin-bottom: 1.5rem;
-    margin-top: 18.3rem;
+    font-size: 1.6rem;
+    margin-top: 18.5rem;
   }
 `;
 
