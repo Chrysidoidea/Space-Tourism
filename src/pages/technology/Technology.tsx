@@ -1,8 +1,15 @@
 import React, { useEffect } from "react";
+import { NavLink } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import MainComponentPage from "../mainComponent/mainComponent";
 import { Section } from "../../styles/globalStyles";
 import { PageHeading } from "../../styles/globalStyles";
-import { pageHeading, technology, Technology } from "../../utils/database";
+import {
+  PAGE_HEADING_DATABASE,
+  TECH_DATABASE,
+  GENERIC_PAGE_TYPE,
+  ROUTE_LINKS_DATABASE,
+} from "../../utils/database";
 import {
   TechnologyImg,
   TechnologySlider,
@@ -11,13 +18,9 @@ import {
   TechnologyInfo,
   TechnologyContainer,
 } from "../../styles/pages/technology/technologyStyles";
-import { useNavigate, useLocation } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import { matchPageUrl } from "../../utils/helperFuntions";
 
-type TechnologyProps = {
-  data?: Technology[];
-};
-const Technology: React.FC<TechnologyProps> = () => {
+const Technology: React.FC<GENERIC_PAGE_TYPE> = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -27,54 +30,41 @@ const Technology: React.FC<TechnologyProps> = () => {
     }
   }, [location.pathname, navigate]);
 
-  const matchingTechnologies = () => {
-    if (
-      [
-        "/technology/launch-vehicle",
-        "/technology/spaceport",
-        "/technology/space-capsule",
-      ].includes(location.pathname)
-    ) {
-      return technology.filter(
-        (item) => item.url === locationTransform(location.pathname)
-      )[0];
-    } else {
-      return technology[0];
-    }
-  };
-  const locationTransform = (location: string) => {
-    if (
-      [
-        "/technology/launch-vehicle",
-        "/technology/spaceport",
-        "/technology/space-capsule",
-      ].includes(location)
-    ) {
-      return location.match(/\/([^\/]+)$/)?.[1];
-    } else {
-      return "launch";
-    }
-  };
-  //approach below, change applied only at first render, if you make dynamic width changes this will not re-render new picture
+
   const urlHandler = () => {
     if (window.innerWidth > 768) {
-      return matchingTechnologies().images.portrait;
+      return (
+        matchPageUrl(
+          ROUTE_LINKS_DATABASE.technology,
+          location,
+          "launch-vehicle",
+          TECH_DATABASE
+        ) as { images: { portrait: string } }
+      ).images.portrait;
     }
-    return matchingTechnologies().images.landscape;
+    return (
+      matchPageUrl(
+        ROUTE_LINKS_DATABASE.technology,
+        location,
+        "launch-vehicle",
+        TECH_DATABASE
+      ) as { images: { landscape: string } }
+    ).images.landscape;
   };
+  //approach below, change applied only at first render, if you make dynamic width changes this will not re-render new picture
 
   return (
     <MainComponentPage>
       <Section>
         <PageHeading>
-          <span>{pageHeading[2].place}</span>
-          {pageHeading[2].title}
+          <span>{PAGE_HEADING_DATABASE[2].place}</span>
+          {PAGE_HEADING_DATABASE[2].title}
         </PageHeading>
         <TechnologyImg src={urlHandler()} alt="tech" />
       </Section>
 
       <TechnologySlider>
-        {technology.map((item) => {
+        {TECH_DATABASE.map((item) => {
           return (
             <NavLink to={`/technology/${item.url}`} key={item.name}>
               {item.position}
@@ -83,11 +73,29 @@ const Technology: React.FC<TechnologyProps> = () => {
         })}
       </TechnologySlider>
 
-      <Section $crew>
+      <Section $Nói_albínói>
         <TechnologyContainer>
           <TechnologyHeading>THE TERMINOLOGY…</TechnologyHeading>
-          <TechnologyName>{matchingTechnologies().name}</TechnologyName>
-          <TechnologyInfo>{matchingTechnologies().info}</TechnologyInfo>
+          <TechnologyName>
+            {
+              (matchPageUrl(
+                ROUTE_LINKS_DATABASE.technology,
+                location,
+                "launch-vehicle",
+                TECH_DATABASE
+              )as { name: string }).name
+            }
+          </TechnologyName>
+          <TechnologyInfo>
+            {
+              (matchPageUrl(
+                ROUTE_LINKS_DATABASE.technology,
+                location,
+                "launch-vehicle",
+                TECH_DATABASE
+              ) as { info: string }).info
+            }
+          </TechnologyInfo>
         </TechnologyContainer>
       </Section>
     </MainComponentPage>

@@ -1,6 +1,6 @@
 import React from "react";
-import MainComponent from "../../components/main/main";
-import { mainBackgroundDatabase } from "../../utils/database";
+import MainComponent from "../../components/main/Main";
+import { BACKGROUND_DATABASE } from "../../utils/database";
 import { Section } from "../../styles/globalStyles";
 import { HomeHeading, SectionName,  SectionParagraph, CircleOfWOrlds} from "../../styles/pages/home/homeStyles";
 
@@ -8,9 +8,9 @@ import { HomeHeading, SectionName,  SectionParagraph, CircleOfWOrlds} from "../.
 const Home: React.FC = () => {
   return (
     <MainComponent
-      mobileBackground={mainBackgroundDatabase.home.mobile}
-      tabletBackground={mainBackgroundDatabase.home.tablet}
-      desktopBackground={mainBackgroundDatabase.home.desktop}
+      mobileBackground={BACKGROUND_DATABASE.home.mobile}
+      tabletBackground={BACKGROUND_DATABASE.home.tablet}
+      desktopBackground={BACKGROUND_DATABASE.home.desktop}
     >
       <Section>
         <HomeHeading>so, you want to travel to</HomeHeading>

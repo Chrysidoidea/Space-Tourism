@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { navigationData } from "../utils/database";
+import { NAVIGATION_DATABASE } from "../utils/database";
 import { useNavigate } from "react-router-dom";
 
 import {
@@ -123,7 +123,7 @@ const Navigation: React.FC = () => {
             animate={isOpen ? "initial" : "collapse"}
             variants={UlVariants}
           >
-            {numerableDataRenderer(navigationData, handleClick)}
+            {numerableDataRenderer(NAVIGATION_DATABASE, handleClick)}
           </UlDropdown>
         </>
       )}
@@ -131,13 +131,13 @@ const Navigation: React.FC = () => {
       {menuType === "tablet" && (
         <>
           {/*render this if screen width more than 768px*/}
-          <UlDefaut>{nonNumerableDataRenderer(navigationData)}</UlDefaut>
+          <UlDefaut>{nonNumerableDataRenderer(NAVIGATION_DATABASE)}</UlDefaut>
         </>
       )}
       {menuType === "desktop" && (
         <>
           {/*render this if screen width more than 1440px*/}
-          <UlDefaut>{numerableDataRenderer(navigationData)}</UlDefaut>
+          <UlDefaut>{numerableDataRenderer(NAVIGATION_DATABASE)}</UlDefaut>
         </>
       )}
     </NavStyled>

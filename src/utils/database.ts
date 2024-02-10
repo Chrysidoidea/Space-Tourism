@@ -1,18 +1,19 @@
+"use strict";
 //databank for the navigation
-export const navigationData = [
+export const NAVIGATION_DATABASE = [
   { place: "00", title: "Home", link: "" },
   { place: "01", title: "Destination", link: "destination" },
   { place: "02", title: "Crew", link: "crew" },
   { place: "03", title: "Technology", link: "technology" },
 ];
 //databank for page headings
-export const pageHeading = [
+export const PAGE_HEADING_DATABASE = [
   { place: "01", title: "Pick your destination" },
   { place: "02", title: "Meet your crew" },
   { place: "03", title: "Space Launch 101" },
 ];
 //databank with links for backgrounds for Main component
-export const mainBackgroundDatabase = {
+export const BACKGROUND_DATABASE = {
   home: {
     mobile: "./assets/background/home/background-home-mobile.jpg",
     tablet: "./assets/background/home/background-home-tablet.jpg",
@@ -35,16 +36,17 @@ export const mainBackgroundDatabase = {
     desktop: "./assets/background/technology/background-technology-desktop.jpg",
   },
 };
-//databank for moons
+//databank for satellites
 export const destinationObject = {
   moon: "/assets/img/destination/image-moon.webp",
   mars: "/assets/img/destination/image-mars.webp",
   europa: "/assets/img/destination/image-europa.webp",
   titan: "/assets/img/destination/image-titan.webp",
 };
+
 export const destination = ["mars", "europa", "titan", "moon"];
+
 export type DestinationTypes = {
-  name: string;
   images: {
     png: string;
     webp: string;
@@ -52,11 +54,11 @@ export type DestinationTypes = {
   description: string;
   distance: string;
   travel: string;
+  url: string;
 };
 
-export const destinations = [
+export const DESTINATION_DATABASE = [
   {
-    name: "moon",
     images: {
       png: "/Space-Tourism/assets/img/destination/image-moon.png",
       webp: "/Space-Tourism/assets/img/destination/image-moon.webp",
@@ -65,9 +67,9 @@ export const destinations = [
       "See our planet as you’ve never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you’re there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.",
     distance: "384,400 km",
     travel: "3 days",
+    url: "moon",
   },
   {
-    name: "mars",
     images: {
       png: "/Space-Tourism/assets/img/destination/image-mars.png",
       webp: "/Space-Tourism/assets/img/destination/image-mars.webp",
@@ -76,9 +78,9 @@ export const destinations = [
       "Don’t forget to pack your hiking bag. You can arrive in any climate, any weather, so you can see the great outdoors and get an amazing view of the planet. ",
     distance: "225 mil. km",
     travel: "9 months",
+    url: "mars",
   },
   {
-    name: "europa",
     images: {
       png: "/Space-Tourism/assets/img/destination/image-europa.png",
       webp: "/Space-Tourism/assets/img/destination/image-europa.webp",
@@ -87,9 +89,10 @@ export const destinations = [
       "The smallest of the four Galilean moons orbiting Jupiter, Europa is a winter lover’s dream. With an icy surface, it’s perfect for skiing and snowboarding.",
     distance: "628 mil. km",
     travel: "3 years",
+    url: "europa",
+
   },
   {
-    name: "titan",
     images: {
       png: "/Space-Tourism/assets/img/destination/image-titan.png",
       webp: "/Space-Tourism/assets/img/destination/image-titan.webp",
@@ -98,10 +101,12 @@ export const destinations = [
       "The only moon known to have a dense atmosphere other than Earth, Titan is a home away from home (just a few hundred degrees colder!). As a bonus, you get striking views of the Rings of Saturn.",
     distance: "1.6 bil. km",
     travel: "7 years",
+    url: "titan",
+
   },
 ];
 
-export type Crew = {
+export type CREW_DATABASE_TYPE = {
   name: string;
   images: {
     png: string;
@@ -112,7 +117,7 @@ export type Crew = {
   url: string;
 };
 
-export const crew = [
+export const CREW_DATABASE = [
   {
     name: "Douglas Hurley",
     images: {
@@ -164,7 +169,7 @@ export type Technology = {
   url: string;
 };
 
-export const technology = [
+export const TECH_DATABASE = [
   {
     name: "Launch vehicle",
     info: "A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch pad!",
@@ -196,3 +201,25 @@ export const technology = [
     position: "3",
   },
 ];
+
+export type GENERIC_PAGE_TYPE = typeof DESTINATION_DATABASE | typeof TECH_DATABASE | typeof CREW_DATABASE;
+
+export const ROUTE_LINKS_DATABASE = {
+  crew: [
+    "/crew/commander",
+    "/crew/engineer",
+    "/crew/pilot",
+    "/crew/mspecialist",
+  ],
+  destination: [
+    "/destination/moon",
+    "/destination/europa",
+    "/destination/mars",
+    "/destination/titan",
+  ],
+  technology: [
+      "/technology/launch-vehicle",
+      "/technology/spaceport",
+      "/technology/space-capsule",
+  ],
+}

@@ -11,6 +11,7 @@ export const GlobalStyle = createGlobalStyle`
     --light-periwinkle-blue: #D0D6F9; 
     --dark-navy-blue: #0B0D17;
   }
+
  html, body {
   background-color: var(--global);
   margin: 0;
@@ -44,10 +45,6 @@ export const UppercaseText = css`
   text-transform: uppercase;
 `;
 
-
-export const Header2 = styled.h2`
-  ${UppercaseText};
-`;
 export const Header3 = styled.h3`
   ${UppercaseText};
   font-family: "Barlow Condensed", sans-serif;
@@ -56,14 +53,10 @@ export const Header3 = styled.h3`
     color: grey;
   }
 `;
-export const Header4 = styled.h4`
-  ${UppercaseText}
-`;
 
-
-
+//Iceland is very beautiful country, isn't?
 type SectionProps = {
-  $crew?: boolean;
+  $Nói_albínói?: boolean;
 };
 
 export const Section = styled.section<SectionProps>`
@@ -80,13 +73,12 @@ export const Section = styled.section<SectionProps>`
   }
 
   ${(props) =>
-    props.$crew &&
+    props.$Nói_albínói &&
     css`
       @media (${device.desktop}) {
         width: 100%;
       }
     `}
-    
 `;
 
 export const DetailsLabelValue = styled.div`

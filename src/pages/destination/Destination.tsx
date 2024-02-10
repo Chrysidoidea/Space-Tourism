@@ -1,5 +1,9 @@
 import React, { useEffect } from "react";
-import { pageHeading } from "../../utils/database";
+import {
+  PAGE_HEADING_DATABASE,
+  ROUTE_LINKS_DATABASE,
+  BACKGROUND_DATABASE,
+} from "../../utils/database";
 import { PageHeading } from "../../styles/globalStyles";
 import { Section } from "../../styles/globalStyles";
 import {
@@ -10,16 +14,17 @@ import {
 import { BreakLine } from "../../styles/globalStyles";
 import { DetailsLabelValue } from "../../styles/globalStyles";
 import { DestinationImg } from "../../styles/pages/destination/destinationStyles";
-import { SectionNavigator } from "../../components/sectionNavigator/SectionNavigator";
-import { destinations } from "../../utils/database";
-import { DestinationTypes } from "../../utils/database";
+import { DESTINATION_DATABASE } from "../../utils/database";
+import { GENERIC_PAGE_TYPE } from "../../utils/database";
 import { useLocation, useNavigate } from "react-router-dom";
-import MainComponentPage from "../mainComponent/mainComponent";
+import MainComponent from "../../components/main/Main";
+import { locationTransform, matchPageUrl } from "../../utils/helperFuntions";
+import {
+  SectionNavigatorNav,
+  SectionNavLink,
+} from "../../styles/components/sectionNavigator/sectionNavigatorStyles";
 
-type DestinationProps = {
-  data?: DestinationTypes[];
-};
-const Destination: React.FC<DestinationProps> = () => {
+const Destination: React.FC<GENERIC_PAGE_TYPE> = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -29,80 +34,96 @@ const Destination: React.FC<DestinationProps> = () => {
     }
   }, [location.pathname, navigate]);
 
-  const locationTransform = (location: string) => {
-    if (
-      [
-        "/destination/moon",
-        "/destination/europa",
-        "/destination/mars",
-        "/destination/titan",
-      ].includes(location)
-    ) {
-      return location.match(/\/([^\/]+)$/)?.[1];
-    } else {
-      return "moon";
-    }
-  };
-
-  // check our current location and return the matching destination description data object
-  const matchingDestination = () => {
-    if (
-      [
-        "/destination/moon",
-        "/destination/europa",
-        "/destination/mars",
-        "/destination/titan",
-      ].includes(location.pathname)
-    ) {
-      const destinationObject = destinations.filter(
-        (item) => item.name === locationTransform(location.pathname)
-      )[0];
-      return destinationObject;
-    } else {
-      return destinations[0];
-    }
-  };
-
   return (
-    <MainComponentPage>
-
+    <MainComponent
+      mobileBackground={BACKGROUND_DATABASE.destination.mobile}
+      tabletBackground={BACKGROUND_DATABASE.destination.tablet}
+      desktopBackground={BACKGROUND_DATABASE.destination.desktop}
+    >
       <Section>
         <PageHeading>
-          <span>{pageHeading[0].place}</span>
-          {pageHeading[0].title}
+          <span>{PAGE_HEADING_DATABASE[0].place}</span>
+          {PAGE_HEADING_DATABASE[0].title}
         </PageHeading>
         <DestinationImg
           src={`./../assets/img/destination/image-${locationTransform(
-            location.pathname
+            location.pathname,
+            ROUTE_LINKS_DATABASE.destination,
+            "moon"
           )}.webp`}
-          alt={locationTransform(location.pathname)}
+          alt={locationTransform(
+            location.pathname,
+            ROUTE_LINKS_DATABASE.destination,
+            "moon"
+          )}
         />
       </Section>
-
       <Section>
-        {/* //attention, section navigator is a FC */}
-        <SectionNavigator data={destinations} />
-        {/* //attention, section navigator is a FC */}
+        <SectionNavigatorNav>
+          {DESTINATION_DATABASE.map((item) => {
+            return (
+              <SectionNavLink to={`${item.url}`} key={item.url}>
+                <li>{item.url}</li>
+              </SectionNavLink>
+            );
+          })}
+        </SectionNavigatorNav>
         <DestinationName>
-          {locationTransform(location.pathname)}
+          {locationTransform(
+            location.pathname,
+            ROUTE_LINKS_DATABASE.destination,
+            "moon"
+          )}
         </DestinationName>
         <DestinationDescribe>
-          {matchingDestination().description}
+          {
+            (
+              matchPageUrl(
+                ROUTE_LINKS_DATABASE.destination,
+                location,
+                "moon",
+                DESTINATION_DATABASE
+              ) as { description: string }
+            ).description
+          }
         </DestinationDescribe>
         <BreakLine />
         <DestinationDetails>
           <DetailsLabelValue>
             <div>avg. distance</div>
-            <div>{matchingDestination().distance}</div>
+            <div>
+              {" "}
+              {
+                (
+                  matchPageUrl(
+                    ROUTE_LINKS_DATABASE.destination,
+                    location,
+                    "moon",
+                    DESTINATION_DATABASE
+                  ) as { distance: string }
+                ).distance
+              }
+            </div>
           </DetailsLabelValue>
           <DetailsLabelValue>
             <div>est. travel time</div>
-            <div>{matchingDestination().travel}</div>
+            <div>
+              {" "}
+              {
+                (
+                  matchPageUrl(
+                    ROUTE_LINKS_DATABASE.destination,
+                    location,
+                    "moon",
+                    DESTINATION_DATABASE
+                  ) as { travel: string }
+                ).travel
+              }
+            </div>
           </DetailsLabelValue>
         </DestinationDetails>
       </Section>
-      
-    </MainComponentPage>
+    </MainComponent>
   );
 };
 

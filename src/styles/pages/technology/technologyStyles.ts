@@ -2,6 +2,81 @@ import styled from "styled-components";
 import { UppercaseText } from "../../globalStyles";
 import { device } from "../../../utils/windowUtils";
 
+//frequently used styles
+const baseFontSize = "1rem";
+const baseLineHeight = "1.5rem";
+
+export const TechnologyContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (${device.desktop}) {
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translateY(55%) translateX(-55%);
+    align-items: flex-start;
+  }
+`;
+
+
+export const TechnologyHeading = styled.h3`
+  ${UppercaseText}
+  font-family: "Barlow Condensed", sans-serif;
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+  font-size: ${baseFontSize};
+  letter-spacing: 0.1rem;
+
+  @media (${device.tablet}) {
+    font-size: 1.2rem;
+    margin-top: 2.5rem;
+  }
+
+  @media (${device.desktop}) {
+    margin-top: 0;
+  }
+`;
+
+export const TechnologyName = styled.h2`
+  ${UppercaseText};
+  font-family: "Bellefair", sans-serif;
+  margin-top: 0.7rem;
+  margin-bottom: 0;
+
+  @media (${device.tablet}) {
+    font-size: 2.5rem;
+  }
+
+  @media (${device.desktop}) {
+    font-size: 3.5rem;
+  }
+`;
+
+export const TechnologyInfo = styled.p`
+  margin: 0;
+  text-align: center;
+  font-family: "Barlow", sans-serif;
+  font-weight: 200;
+  font-size: 0.9rem;
+  line-height: ${baseLineHeight};
+  margin-top: 1.2rem;
+
+  @media (${device.tablet}) {
+    margin-top: 1.4rem;
+    line-height: 1.7rem;
+    font-size: 1rem;
+    width: 63%;
+  }
+
+  @media (${device.desktop}) {
+    text-align: left;
+    line-height: 2rem;
+    width: 60%
+  }
+`;
+
 export const TechnologyImg = styled.img`
   height: 10.5rem;
 
@@ -69,75 +144,5 @@ export const TechnologySlider = styled.ul`
   & > .active {
     background-color: var(--color-white);
     color: black;
-  }
-`;
-
-export const TechnologyContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  @media (${device.desktop}) {
-    position: absolute;
-    left: 50%;
-    top: 20%;
-    transform: translateY(55%) translateX(-55%);
-    align-items: flex-start;
-  }
-`;
-
-export const TechnologyHeading = styled.h3`
-  ${UppercaseText}
-  font-family: "Barlow Condensed", sans-serif;
-  margin-top: 1.5rem;
-  margin-bottom: 0;
-  font-size: 1rem;
-  letter-spacing: 0.1rem;
-
-  @media (${device.tablet}) {
-    font-size: 1.2rem;
-    margin-top: 2.5rem;
-  }
-
-  @media (${device.desktop}) {
-    margin-top: 0;
-    font-size: 1.2rem;
-  }
-`;
-
-export const TechnologyName = styled.h2`
-  ${UppercaseText};
-  font-family: "Bellefair", sans-serif;
-  margin-top: 0.7rem;
-  margin-bottom: 0;
-
-  @media (${device.tablet}) {
-    font-size: 2.5rem;
-  }
-
-  @media (${device.desktop}) {
-    font-size: 3.5rem;
-  }
-`;
-export const TechnologyInfo = styled.p`
-  margin: 0;
-  text-align: center;
-  font-family: "Barlow", sans-serif;
-  font-weight: 200;
-  font-size: 0.9rem;
-  line-height: 1.5rem;
-  margin-top: 1.2rem;
-
-  @media (${device.tablet}) {
-    margin-top: 1.4rem;
-    line-height: 1.7rem;
-    font-size: 1rem;
-    width: 63%;
-  }
-
-  @media (${device.desktop}) {
-    text-align: left;
-    line-height: 2rem;
-    width: 60%
   }
 `;

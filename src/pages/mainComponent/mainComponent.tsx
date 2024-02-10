@@ -1,6 +1,6 @@
 import React from "react";
-import MainComponent from "../../components/main/main";
-import { mainBackgroundDatabase } from "../../utils/database";
+import MainComponent from "../../components/main/Main";
+import { BACKGROUND_DATABASE } from "../../utils/database";
 
 type MainComponentPageProps = {
    children: React.ReactNode,
@@ -8,9 +8,9 @@ type MainComponentPageProps = {
 const MainComponentPage: React.FC<MainComponentPageProps> = ({children}) => {
   return (
     <MainComponent
-      mobileBackground={mainBackgroundDatabase.destination.mobile}
-      tabletBackground={mainBackgroundDatabase.destination.tablet}
-      desktopBackground={mainBackgroundDatabase.destination.desktop}
+      mobileBackground={BACKGROUND_DATABASE.destination.mobile}
+      tabletBackground={BACKGROUND_DATABASE.destination.tablet}
+      desktopBackground={BACKGROUND_DATABASE.destination.desktop}
     >
       {children}
     </MainComponent>

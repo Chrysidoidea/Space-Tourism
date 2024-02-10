@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 import { device } from "../../../utils/windowUtils";
 
 type MainType = {
-    $mobileBackground: string;
-    $tabletBackground: string;
-    $desktopBackground: string;
-}
+  $mobileBackground: string;
+  $tabletBackground: string;
+  $desktopBackground: string;
+};
 const Main = styled(motion.div)<MainType>`
   position: absolute;
   background-image: url(${(props) => props.$mobileBackground});
