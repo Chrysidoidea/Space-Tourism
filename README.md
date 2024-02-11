@@ -4,7 +4,7 @@
 * react-library, 
 * react-router-dom, 
 * framer-motion,
-* styled-componentsm
+* styled-components,
 * type-script
 # [Visit Space-Tourism app](https://chrysidoidea.github.io/Space-Tourism/) 
 
