@@ -3,10 +3,7 @@ import { motion } from "framer-motion";
 import { NAVIGATION_DATABASE } from "../utils/database";
 import { useNavigate } from "react-router-dom";
 
-import {
-  numerableDataRenderer,
-  nonNumerableDataRenderer,
-} from "./NavigationDataRender";
+import { numerableDataRenderer, nonNumerableDataRenderer } from "./NavigationDataRender";
 import { device } from "../utils/windowUtils";
 import throttle from "../utils/throttle";
 
