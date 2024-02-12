@@ -18,12 +18,12 @@ export const numerableDataRenderer = (
   isOpen?: () => void
 ) => {
   return data.map((item) => (
-    <NavLinkStyled to={`/${item.link}`} onClick={isOpen} key={item.place}>
       <NumerableNavigationItem>
+        <NavLinkStyled to={`/${item.link}`} onClick={isOpen} key={item.place}>
         <MenuSpan>{item.place}</MenuSpan>
         {item.title}
+        </NavLinkStyled>
       </NumerableNavigationItem>
-    </NavLinkStyled>
   ));
 };
 //render non numerable nav items for tablet screens
@@ -32,10 +32,10 @@ export const nonNumerableDataRenderer = (
   isOpen?: () => void
 ) => {
   return data.map((item) => (
-    <NavLinkStyled to={`/${item.link}`} onClick={isOpen} key={item.place}>
       <NonNumerableNavigationItem key={item.place}>
+      <NavLinkStyled to={`/${item.link}`} onClick={isOpen} key={item.place}>
         {item.title}
+        </NavLinkStyled>
       </NonNumerableNavigationItem>
-    </NavLinkStyled>
   ));
 };

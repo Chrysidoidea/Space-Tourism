@@ -22,6 +22,18 @@ export const NavStyled = styled.div`
   }
   @media (${device.desktop}) {
     padding: 2.5rem 0 0 3.5rem;
+
+    &:before {
+      content: "";
+      position: absolute;
+      height: 0.05em;
+      width: 33vw;
+      background-color: rgba(128, 128, 128, 0.34);
+      top: 63%;
+      transform: translateY(50%);
+      right: 55.5%;
+      z-index: 1;
+    }
   }
 `;
 //app logo
@@ -59,8 +71,9 @@ export const UlDefaut = styled(motion.ul)`
   list-style: none;
   gap: 2.3rem;
   text-transform: uppercase;
-  height: 100%;
-  width: clamp(28.125rem, 58vw, 70rem);
+  /* height: 100%; */
+  height: 6rem;
+  width: clamp(28.125rem, 58vw, 300rem);
   font-family: "Barlow Condensed", sans-serif;
   font-size: 0.85rem;
   letter-spacing: 2.6px;
@@ -71,25 +84,10 @@ export const UlDefaut = styled(motion.ul)`
   backdrop-filter: blur(5rem);
   -webkit-backdrop-filter: blur(5rem);
 
-  & > *.active {
-    pointer-events: none;
-  }
-
   @media (${device.desktop}) {
     padding-left: 8rem;
     font-size: 1rem;
     gap: 3rem;
-
-    &::before {
-      content: "";
-      position: absolute;
-      height: 2px;
-      width: 57%;
-      left: -52%;
-      background-color: #97979747;
-      top: 50%;
-      transform: translateY(-50%);
-    }
   }
 `;
 export const UlDropdown = styled(motion.ul)`
@@ -115,6 +113,12 @@ export const UlDropdown = styled(motion.ul)`
 `;
 
 const ButtonUnderline = css`
+  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
   &::before {
     content: "";
     position: absolute;
@@ -124,8 +128,13 @@ const ButtonUnderline = css`
     transition: 0.3s;
     bottom: 0;
   }
+
   &:hover::before {
     background-color: #979797;
+  }
+
+  &.active {
+    pointer-events: none;
   }
   &.active::before {
     background-color: #ffffff;
@@ -134,6 +143,7 @@ const ButtonUnderline = css`
 
 export const NumerableNavigationItem = styled.li`
   position: relative;
+  height: 100%;
   cursor: pointer;
   display: flex;
   align-items: center;
