@@ -83,6 +83,7 @@ export const CircleOfWOrlds = styled.button`
     border-radius: 50%;
     background-color: #97979732;
     backdrop-filter: blur(0.2rem);
+    -webkit-backdrop-filter: blur(0.2rem);
     z-index: -1;
     transition: 0.1s;
   }
