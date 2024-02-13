@@ -18,8 +18,8 @@ export const numerableDataRenderer = (
   isOpen?: () => void
 ) => {
   return data.map((item) => (
-      <NumerableNavigationItem>
-        <NavLinkStyled to={`/${item.link}`} onClick={isOpen} key={item.place}>
+      <NumerableNavigationItem key={item.place}>
+        <NavLinkStyled to={`/${item.link}`} onClick={isOpen} >
         <MenuSpan>{item.place}</MenuSpan>
         {item.title}
         </NavLinkStyled>
@@ -33,7 +33,7 @@ export const nonNumerableDataRenderer = (
 ) => {
   return data.map((item) => (
       <NonNumerableNavigationItem key={item.place}>
-      <NavLinkStyled to={`/${item.link}`} onClick={isOpen} key={item.place}>
+      <NavLinkStyled to={`/${item.link}`} onClick={isOpen}>
         {item.title}
         </NavLinkStyled>
       </NonNumerableNavigationItem>
