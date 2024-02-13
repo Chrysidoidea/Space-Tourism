@@ -71,7 +71,6 @@ export const UlDefaut = styled(motion.ul)`
   list-style: none;
   gap: 2.3rem;
   text-transform: uppercase;
-  /* height: 100%; */
   height: 6rem;
   width: clamp(28.125rem, 58vw, 300rem);
   font-family: "Barlow Condensed", sans-serif;
@@ -122,6 +121,7 @@ const ButtonUnderline = css`
   &::before {
     content: "";
     position: absolute;
+    top: clamp(3.05rem, 1vh, 3rem);
     height: 3px;
     width: 100%;
     background-color: transparent;
@@ -143,7 +143,7 @@ const ButtonUnderline = css`
 
 export const NumerableNavigationItem = styled.li`
   position: relative;
-  height: 100%;
+  height: 10%;
   cursor: pointer;
   display: flex;
   align-items: center;

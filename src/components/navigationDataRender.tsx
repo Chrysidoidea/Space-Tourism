@@ -33,7 +33,7 @@ export const nonNumerableDataRenderer = (
 ) => {
   return data.map((item) => (
       <NonNumerableNavigationItem key={item.place}>
-      <NavLinkStyled to={`/${item.link}`} onClick={isOpen}>
+      <NavLinkStyled to={`/${item.link}`} onClick={isOpen} key={item.place}>
         {item.title}
         </NavLinkStyled>
       </NonNumerableNavigationItem>
