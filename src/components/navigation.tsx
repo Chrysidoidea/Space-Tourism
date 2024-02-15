@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { NAVIGATION_DATABASE } from "../utils/database";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import {
   numerableDataRenderer,
@@ -25,7 +25,6 @@ import {
 } from "../styles/components/navigationAnima";
 const Navigation: React.FC = () => {
   const navigate = useNavigate();
-  // const location = useLocation();
   const logoNavigation = () => {
     navigate("/");
   };
