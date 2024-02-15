@@ -1,9 +1,12 @@
 import React, { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { NAVIGATION_DATABASE } from "../utils/database";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
-import { numerableDataRenderer, nonNumerableDataRenderer } from "./NavigationDataRender";
+import {
+  numerableDataRenderer,
+  nonNumerableDataRenderer,
+} from "./NavigationDataRender";
 import { device } from "../utils/windowUtils";
 import throttle from "../utils/throttle";
 
@@ -22,9 +25,10 @@ import {
 } from "../styles/components/navigationAnima";
 const Navigation: React.FC = () => {
   const navigate = useNavigate();
+  // const location = useLocation();
   const logoNavigation = () => {
     navigate("/");
-  }
+  };
   //check screen size, if 768px width return true, else false.
   const toggleMenuType = () => {
     //creating a breackpoints to achieve desired styles depends of screen size
@@ -41,7 +45,13 @@ const Navigation: React.FC = () => {
   };
 
   const [menuType, setMenuType] = useState<string>(toggleMenuType());
+  //we need to track end of animation to delete Ul element from DOM tree.
+  const [animationComplete, setanimationComplete] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  //We need to track place where event happens, to control desired behavior.
+  //In current situation we need to close dropdown menu if user clicks outside
+  //of it.
+  
   const dropdownRef = useRef<HTMLUListElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -86,7 +96,7 @@ const Navigation: React.FC = () => {
 
   return (
     <NavStyled>
-      <Logo onClick={logoNavigation}/>
+      <Logo onClick={logoNavigation} />
       {/*render data depends of screen size, if 380 or less, show this option */}
       {menuType === "mobile" && (
         <>
@@ -115,10 +125,22 @@ const Navigation: React.FC = () => {
           </Hamburger>
 
           <UlDropdown
+            //hide when condition mets
+            style={
+              animationComplete ? { display: "none" } : { display: "flex" }
+            }
             ref={dropdownRef}
             initial={false}
             animate={isOpen ? "initial" : "collapse"}
             variants={UlVariants}
+            //return default position
+            onAnimationStart={() => setanimationComplete(false)}
+            //set condition to make Ul element disappear
+            onAnimationComplete={() => {
+              if (!isOpen) {
+                setanimationComplete(true);
+              }
+            }}
           >
             {numerableDataRenderer(NAVIGATION_DATABASE, handleClick)}
           </UlDropdown>

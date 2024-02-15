@@ -12,7 +12,7 @@ type NavigationItemType = {
 };
 
 
-//render numerable nav items for mobile and desktop screens
+//render numerable nav items for mobile
 export const numerableDataRenderer = (
   data: NavigationItemType[],
   isOpen?: () => void
@@ -26,7 +26,7 @@ export const numerableDataRenderer = (
       </NumerableNavigationItem>
   ));
 };
-//render non numerable nav items for tablet screens
+//render non numerable nav items for tablet and desktop screens
 export const nonNumerableDataRenderer = (
   data: NavigationItemType[],
   isOpen?: () => void

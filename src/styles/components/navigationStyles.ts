@@ -62,7 +62,6 @@ export const Hamburger = styled(motion.button)`
     height: 0.2rem;
     margin: 0.35rem 0;
     background-color: white;
-    transition: all 0.3s;
   }
 `;
 export const UlDefaut = styled(motion.ul)`
@@ -121,7 +120,7 @@ const ButtonUnderline = css`
   &::before {
     content: "";
     position: absolute;
-    top: clamp(3.05rem, 1vh, 3rem);
+    top: 3.1rem;
     height: 3px;
     width: 100%;
     background-color: transparent;
@@ -143,10 +142,8 @@ const ButtonUnderline = css`
 
 export const NumerableNavigationItem = styled.li`
   position: relative;
-  height: 10%;
   cursor: pointer;
   display: flex;
-  align-items: center;
 `;
 
 export const NonNumerableNavigationItem = styled.li`
@@ -166,8 +163,8 @@ export const MenuSpan = styled.span`
 
 export const NavLinkStyled = styled(NavLink)`
   position: relative;
-  display: grid;
   text-decoration: none;
+  font-weight: 200;
   color: white;
 
   @media (${device.tablet}) {
