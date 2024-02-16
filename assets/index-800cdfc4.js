@@ -306,7 +306,7 @@ h2, h3, h4, h5, p {
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(5rem);
   -webkit-backdrop-filter: blur(5rem);
-  height: 100vh;
+  min-height: 100vh;
   box-sizing: border-box;
   right: -68vw;
 `,BP=Qn`
@@ -319,7 +319,7 @@ h2, h3, h4, h5, p {
   &::before {
     content: "";
     position: absolute;
-    top: 3.1rem;
+    top: 3.3rem;
     height: 3px;
     width: 100%;
     background-color: transparent;
@@ -363,15 +363,14 @@ h2, h3, h4, h5, p {
     height: 100%;
     ${BP}
   }
-`,Dp=(e,t)=>e.map(n=>R.jsx(bP,{children:R.jsxs(Wy,{to:`/${n.link}`,onClick:t,children:[R.jsx(WP,{children:n.place}),n.title]})},n.place)),HP=(e,t)=>e.map(n=>R.jsx(UP,{children:R.jsx(Wy,{to:`/${n.link}`,onClick:t,children:n.title},n.place)},n.place));function GP(e,t){let n=0;return function(...r){const i=Date.now();i-n>=t&&(e.apply(this,r),n=i)}}const KP={initial:{rotate:0,y:0,transition:{duration:.1,ease:"easeInOut"}},collapse:{rotate:45,y:9,transition:{duration:.1,ease:"easeInOut"}}},YP={initial:{opacity:1,transition:{duration:.2,ease:"easeInOut"}},collapse:{opacity:0,transition:{duration:.2,ease:"linear"}}},QP={initial:{rotate:0,y:0,transition:{duration:.2,ease:"easeInOut"}},collapse:{rotate:-45,y:-9,transition:{duration:.2,ease:"easeInOut"}}},XP={initial:{right:"0vw",opacity:1,transition:{duration:.2,ease:"linear"}},collapse:{right:"-68vw",opacity:0,transition:{duration:.2,ease:"linear"}}},ZP=()=>{const e=qi(),t=()=>{e("/")},n=()=>{const y=Number.parseInt(M.tablet.match(/\d+/)[0]),v=Number.parseInt(M.desktop.match(/\d+/)[0]);return window.innerWidth<y?"mobile":window.innerWidth<v?"tablet":"desktop"},[r,i]=x.useState(n()),[o,s]=x.useState(!1),[a,l]=x.useState(!1),u=x.useRef(null),c=x.useRef(null),f=()=>{l(!a)};x.useEffect(()=>{if(innerWidth<=375&&a===!0){let y=function(v){u.current&&!u.current.contains(v.target)&&c.current&&!c.current.contains(v.target)&&f()};return document.body.addEventListener("click",y),()=>{document.body.removeEventListener("click",y)}}},[a]);const m=GP(()=>{i(n())},100);return x.useEffect(()=>(window.addEventListener("resize",m),()=>{window.removeEventListener("resize",m)}),[m]),R.jsxs(OP,{children:[R.jsx($P,{onClick:t}),r==="mobile"&&R.jsxs(R.Fragment,{children:[R.jsxs(zP,{onClick:f,ref:c,children:[R.jsx(zn.div,{id:"bar1",className:"bar",initial:!1,animate:a?"collapse":"initial",variants:KP}),R.jsx(zn.div,{id:"bar2",className:"bar",initial:!1,animate:a?"collapse":"initial",variants:YP}),R.jsx(zn.div,{id:"bar3",className:"bar",initial:!1,animate:a?"collapse":"initial",variants:QP})]}),R.jsx(FP,{style:o?{display:"none"}:{display:"flex"},ref:u,initial:!1,animate:a?"initial":"collapse",variants:XP,onAnimationStart:()=>s(!1),onAnimationComplete:()=>{a||s(!0)},children:Dp(il,f)})]}),r==="tablet"&&R.jsx(R.Fragment,{children:R.jsx(Lp,{children:HP(il)})}),r==="desktop"&&R.jsx(R.Fragment,{children:R.jsx(Lp,{children:Dp(il)})})]})},qP=$(zn.div)`
+`,Dp=(e,t)=>e.map(n=>R.jsx(bP,{children:R.jsxs(Wy,{to:`/${n.link}`,onClick:t,children:[R.jsx(WP,{children:n.place}),n.title]})},n.place)),HP=(e,t)=>e.map(n=>R.jsx(UP,{children:R.jsx(Wy,{to:`/${n.link}`,onClick:t,children:n.title},n.place)},n.place));function GP(e,t){let n=0;return function(...r){const i=Date.now();i-n>=t&&(e.apply(this,r),n=i)}}const KP={initial:{rotate:0,y:0,transition:{duration:.1,ease:"easeInOut"}},collapse:{rotate:45,y:9,transition:{duration:.1,ease:"easeInOut"}}},YP={initial:{opacity:1,transition:{duration:.2,ease:"easeInOut"}},collapse:{opacity:0,transition:{duration:.2,ease:"linear"}}},QP={initial:{rotate:0,y:0,transition:{duration:.2,ease:"easeInOut"}},collapse:{rotate:-45,y:-9,transition:{duration:.2,ease:"easeInOut"}}},XP={initial:{right:"0vw",opacity:1,transition:{duration:.2,ease:"linear"}},collapse:{right:"-68vw",opacity:0,transition:{duration:.2,ease:"linear"}}},ZP=()=>{const e=qi(),t=()=>{e("/")},n=()=>{const y=Number.parseInt(M.tablet.match(/\d+/)[0]),v=Number.parseInt(M.desktop.match(/\d+/)[0]);return window.innerWidth<y?"mobile":window.innerWidth<v?"tablet":"desktop"},[r,i]=x.useState(n()),[o,s]=x.useState(!1),[a,l]=x.useState(!1),u=x.useRef(null),c=x.useRef(null),f=()=>{l(!a)};x.useEffect(()=>{if(innerWidth<=900&&a===!0){let y=function(v){u.current&&!u.current.contains(v.target)&&c.current&&!c.current.contains(v.target)&&f()};return document.body.addEventListener("click",y),()=>{document.body.removeEventListener("click",y)}}},[a]);const m=GP(()=>{i(n())},100);return x.useEffect(()=>(window.addEventListener("resize",m),()=>{window.removeEventListener("resize",m)}),[m]),R.jsxs(OP,{children:[R.jsx($P,{onClick:t}),r==="mobile"&&R.jsxs(R.Fragment,{children:[R.jsxs(zP,{onClick:f,ref:c,children:[R.jsx(zn.div,{id:"bar1",className:"bar",initial:!1,animate:a?"collapse":"initial",variants:KP}),R.jsx(zn.div,{id:"bar2",className:"bar",initial:!1,animate:a?"collapse":"initial",variants:YP}),R.jsx(zn.div,{id:"bar3",className:"bar",initial:!1,animate:a?"collapse":"initial",variants:QP})]}),R.jsx(FP,{style:o?{display:"none"}:{display:"flex"},ref:u,initial:!1,animate:a?"initial":"collapse",variants:XP,onAnimationStart:()=>s(!1),onAnimationComplete:()=>{a||s(!0)},children:Dp(il,f)})]}),r==="tablet"&&R.jsx(R.Fragment,{children:R.jsx(Lp,{children:HP(il)})}),r==="desktop"&&R.jsx(R.Fragment,{children:R.jsx(Lp,{children:Dp(il)})})]})},qP=$(zn.div)`
   position: absolute;
   background-image: url(${e=>e.$mobileBackground});
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  /* overflow: hidden; */
   max-width: 100vw;
-  min-height: 100dvh;
+  min-height: 38rem;
   inset: 0;
   padding-top: 5.5rem;
   display: flex;
@@ -621,7 +620,7 @@ h2, h3, h4, h5, p {
   }
 
   @media (${M.tablet}) {
-    height: 33rem;
+    height: clamp(33rem , 60vh, 50rem);
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -633,7 +632,7 @@ h2, h3, h4, h5, p {
   }
 
   @media (${M.desktop}) {
-    height: 38rem;
+    height: clamp(38rem , 60vh, 50rem);
     left: 51%;
     bottom: 0;
     transform: none;
@@ -645,10 +644,6 @@ h2, h3, h4, h5, p {
   justify-content: center;
   padding: 0;
   gap: 1rem;
-
-  & > *.active {
-    pointer-events: none;
-  }
 
   @media (${M.tablet}) {
     margin-top: .5rem;
@@ -668,6 +663,7 @@ h2, h3, h4, h5, p {
     width: 0.7rem;
     background-color: #5b5b5b;
     border-radius: 50%;
+    transition: .35s;
 
     @media (${M.desktop}) {
       height: 1rem;
