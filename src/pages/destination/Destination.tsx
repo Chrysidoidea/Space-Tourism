@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect } from "react";
 import {
   PAGE_HEADING_DATABASE,
   ROUTE_LINKS_DATABASE,
