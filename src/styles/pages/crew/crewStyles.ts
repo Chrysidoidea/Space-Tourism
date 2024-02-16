@@ -11,7 +11,7 @@ export const CrewImg = styled.img`
   }
 
   @media (${device.tablet}) {
-    height: clamp(33rem , 60vh, 50rem);
+    height: clamp(33rem , 55vh, 50rem);
     position: absolute;
     bottom: 0;
     left: 50%;
