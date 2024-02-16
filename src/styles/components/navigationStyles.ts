@@ -120,7 +120,7 @@ const ButtonUnderline = css`
   &::before {
     content: "";
     position: absolute;
-    top: 3.1rem;
+    top: 3.3rem;
     height: 3px;
     width: 100%;
     background-color: transparent;

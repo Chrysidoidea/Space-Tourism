@@ -13,7 +13,6 @@ const Main = styled(motion.div)<MainType>`
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  /* overflow: hidden; */
   max-width: 100vw;
   min-height: 100dvh;
   inset: 0;
