@@ -50,7 +50,7 @@ const Navigation: React.FC = () => {
   //We need to track place where event happens, to control desired behavior.
   //In current situation we need to close dropdown menu if user clicks outside
   //of it.
-  
+
   const dropdownRef = useRef<HTMLUListElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -59,7 +59,7 @@ const Navigation: React.FC = () => {
   };
 
   useEffect(() => {
-    if (innerWidth <= 375 && isOpen === true) {
+    if (innerWidth <= 900 && isOpen === true) {
       function handleClickOutside(event: MouseEvent) {
         if (
           dropdownRef.current &&

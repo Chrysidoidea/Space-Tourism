@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import {
   PAGE_HEADING_DATABASE,
   ROUTE_LINKS_DATABASE,
@@ -36,6 +36,7 @@ const Destination: React.FC<GENERIC_PAGE_TYPE> = () => {
       navigate("/destination/moon");
     }
   }, [location.pathname, navigate]);
+
 
   return (
     <MainComponent

@@ -14,7 +14,7 @@ const Main = styled(motion.div)<MainType>`
   background-size: cover;
   background-repeat: no-repeat;
   max-width: 100vw;
-  min-height: 100dvh;
+  min-height: 38rem;
   inset: 0;
   padding-top: 5.5rem;
   display: flex;

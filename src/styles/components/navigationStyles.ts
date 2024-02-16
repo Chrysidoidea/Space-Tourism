@@ -105,7 +105,7 @@ export const UlDropdown = styled(motion.ul)`
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(5rem);
   -webkit-backdrop-filter: blur(5rem);
-  height: 100vh;
+  min-height: 100vh;
   box-sizing: border-box;
   right: -68vw;
 `;

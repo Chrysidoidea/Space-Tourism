@@ -11,7 +11,7 @@ export const CrewImg = styled.img`
   }
 
   @media (${device.tablet}) {
-    height: 33rem;
+    height: clamp(33rem , 60vh, 50rem);
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -23,7 +23,7 @@ export const CrewImg = styled.img`
   }
 
   @media (${device.desktop}) {
-    height: 38rem;
+    height: clamp(38rem , 60vh, 50rem);
     left: 51%;
     bottom: 0;
     transform: none;
@@ -37,10 +37,6 @@ export const SliderNav = styled.ul`
   justify-content: center;
   padding: 0;
   gap: 1rem;
-
-  & > *.active {
-    pointer-events: none;
-  }
 
   @media (${device.tablet}) {
     margin-top: .5rem;
@@ -60,6 +56,7 @@ export const SliderNav = styled.ul`
     width: 0.7rem;
     background-color: #5b5b5b;
     border-radius: 50%;
+    transition: .35s;
 
     @media (${device.desktop}) {
       height: 1rem;
