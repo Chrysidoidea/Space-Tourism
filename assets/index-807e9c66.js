@@ -620,7 +620,7 @@ h2, h3, h4, h5, p {
   }
 
   @media (${M.tablet}) {
-    height: clamp(33rem , 60vh, 50rem);
+    height: clamp(33rem , 55vh, 50rem);
     position: absolute;
     bottom: 0;
     left: 50%;
